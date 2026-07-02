@@ -1,0 +1,16 @@
+﻿using LiteNetLib;
+
+namespace Move.Server
+{
+    public struct PacketContext    //  引数短縮用構造体
+    {
+        public readonly NetPeer Peer { get; }
+        public readonly NetPacketReader Reader { get; }
+
+        public PacketContext(NetPeer peer, NetPacketReader reader)
+        {
+            Peer = peer;
+            Reader = reader;
+        }
+    }
+}
