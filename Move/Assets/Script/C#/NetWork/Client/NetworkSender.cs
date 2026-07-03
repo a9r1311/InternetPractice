@@ -27,7 +27,6 @@ namespace Move.Client
             }
 
             _writer.Reset();
-            Debug.Log((byte)PacketType.Position);
 
             //  パケットタイプを入れる
             _writer.Put((byte)PacketType.Position);

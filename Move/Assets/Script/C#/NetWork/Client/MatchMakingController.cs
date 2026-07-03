@@ -22,7 +22,7 @@ namespace Kamatte.Core
             if (_networkClient != null)
             {
                 //  マッチ成功時に関数を駆動させるために代入
-                _networkClient.OnMatchmakingSuccess += OnMatchSuccess;
+                NetworkClient.OnMatchmakingSuccess += OnMatchSuccess;
             }
 
             CheckMatchStatusLoop(_cts.Token).Forget();
@@ -63,10 +63,7 @@ namespace Kamatte.Core
 
         void OnDestroy()
         {
-            if (_networkClient != null)
-            {
-                _networkClient.OnMatchmakingSuccess -= OnMatchSuccess;
-            }
+                NetworkClient.OnMatchmakingSuccess -= OnMatchSuccess;
 
             _cts?.Cancel();
             _cts?.Dispose();

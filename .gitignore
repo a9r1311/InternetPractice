@@ -466,4 +466,24 @@ FodyWeavers.xsd
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
+# --------------------------------------------------
+# Monorepo / Unity Subfolder Custom Settings
+# --------------------------------------------------
+Move/[L]ibrary/
+Move/[T]emp/
+Move/[O]bj/
+Move/[B]uild/
+Move/[L]ogs/
+Move/[U]serSettings/
+
+Plaintext
+/[Ll]ibrary/
+/[Tt]emp/
+/[Obj]/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ex]portedObj/
+.vs/
+ExportedObj/
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,unity
