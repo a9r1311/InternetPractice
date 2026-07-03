@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - Kamatte.Core.MatchmakingController
     - Move.Client.NetworkClient
     - Move.Player.PlayerInputController
+    - Move.Player.PlayerSpawner
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
     - UnityEngine.InputSystem.InputSettings
@@ -284,121 +285,123 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 20972}
+      Script: {instanceID: 40666}
     - Class: 114
-      Script: {instanceID: 34766}
+      Script: {instanceID: 34768}
     - Class: 114
-      Script: {instanceID: 43434}
+      Script: {instanceID: 43438}
     - Class: 114
-      Script: {instanceID: 37048}
+      Script: {instanceID: 45960}
     - Class: 114
-      Script: {instanceID: 43894}
+      Script: {instanceID: 37050}
     - Class: 114
-      Script: {instanceID: 42360}
+      Script: {instanceID: 43900}
     - Class: 114
-      Script: {instanceID: 39580}
+      Script: {instanceID: 42364}
     - Class: 114
-      Script: {instanceID: 37014}
+      Script: {instanceID: 39582}
     - Class: 114
-      Script: {instanceID: 45286}
+      Script: {instanceID: 37016}
     - Class: 114
-      Script: {instanceID: 39786}
+      Script: {instanceID: 45292}
     - Class: 114
-      Script: {instanceID: 36886}
+      Script: {instanceID: 39788}
     - Class: 114
-      Script: {instanceID: 39506}
+      Script: {instanceID: 36888}
     - Class: 114
-      Script: {instanceID: 39662}
+      Script: {instanceID: 39508}
     - Class: 114
-      Script: {instanceID: 35118}
+      Script: {instanceID: 39664}
     - Class: 114
-      Script: {instanceID: 36980}
+      Script: {instanceID: 35120}
     - Class: 114
-      Script: {instanceID: 35322}
+      Script: {instanceID: 36982}
     - Class: 114
-      Script: {instanceID: 43838}
+      Script: {instanceID: 35324}
     - Class: 114
-      Script: {instanceID: 36566}
+      Script: {instanceID: 43844}
     - Class: 114
-      Script: {instanceID: 34314}
+      Script: {instanceID: 36568}
     - Class: 114
-      Script: {instanceID: 39018}
+      Script: {instanceID: 34316}
     - Class: 114
-      Script: {instanceID: 34590}
+      Script: {instanceID: 39020}
     - Class: 114
-      Script: {instanceID: 36334}
+      Script: {instanceID: 34592}
     - Class: 114
-      Script: {instanceID: 40710}
+      Script: {instanceID: 36336}
     - Class: 114
-      Script: {instanceID: 44180}
+      Script: {instanceID: 40714}
     - Class: 114
-      Script: {instanceID: 45256}
+      Script: {instanceID: 44186}
     - Class: 114
-      Script: {instanceID: 39098}
+      Script: {instanceID: 45262}
     - Class: 114
-      Script: {instanceID: 34992}
+      Script: {instanceID: 39100}
     - Class: 114
-      Script: {instanceID: 46008}
+      Script: {instanceID: 34994}
     - Class: 114
-      Script: {instanceID: 44912}
+      Script: {instanceID: 46016}
     - Class: 114
-      Script: {instanceID: 40708}
+      Script: {instanceID: 44918}
     - Class: 114
-      Script: {instanceID: 40608}
+      Script: {instanceID: 40712}
     - Class: 114
-      Script: {instanceID: 39062}
+      Script: {instanceID: 40610}
     - Class: 114
-      Script: {instanceID: 41736}
+      Script: {instanceID: 39064}
     - Class: 114
-      Script: {instanceID: 45164}
+      Script: {instanceID: 41740}
     - Class: 114
-      Script: {instanceID: 36922}
+      Script: {instanceID: 45170}
     - Class: 114
-      Script: {instanceID: 45448}
+      Script: {instanceID: 36924}
     - Class: 114
-      Script: {instanceID: 43406}
+      Script: {instanceID: 45454}
     - Class: 114
-      Script: {instanceID: 36468}
+      Script: {instanceID: 43410}
     - Class: 114
-      Script: {instanceID: 38962}
+      Script: {instanceID: 36470}
     - Class: 114
-      Script: {instanceID: 39476}
+      Script: {instanceID: 38964}
     - Class: 114
-      Script: {instanceID: 39356}
+      Script: {instanceID: 39478}
     - Class: 114
-      Script: {instanceID: 42336}
+      Script: {instanceID: 39358}
     - Class: 114
-      Script: {instanceID: 35232}
+      Script: {instanceID: 42340}
     - Class: 114
-      Script: {instanceID: 35056}
+      Script: {instanceID: 35234}
     - Class: 114
-      Script: {instanceID: 42210}
+      Script: {instanceID: 35058}
     - Class: 114
-      Script: {instanceID: 36396}
+      Script: {instanceID: 42214}
     - Class: 114
-      Script: {instanceID: 45020}
+      Script: {instanceID: 36398}
     - Class: 114
-      Script: {instanceID: 36794}
+      Script: {instanceID: 45026}
     - Class: 114
-      Script: {instanceID: 40962}
+      Script: {instanceID: 36796}
     - Class: 114
-      Script: {instanceID: 35724}
+      Script: {instanceID: 40966}
     - Class: 114
-      Script: {instanceID: 35454}
+      Script: {instanceID: 35726}
     - Class: 114
-      Script: {instanceID: 37936}
+      Script: {instanceID: 35456}
     - Class: 114
-      Script: {instanceID: 45702}
+      Script: {instanceID: 37938}
     - Class: 114
-      Script: {instanceID: 44342}
+      Script: {instanceID: 45708}
     - Class: 114
-      Script: {instanceID: 40414}
+      Script: {instanceID: 44348}
     - Class: 114
-      Script: {instanceID: 44250}
+      Script: {instanceID: 40416}
     - Class: 114
-      Script: {instanceID: 46178}
+      Script: {instanceID: 44256}
     - Class: 114
-      Script: {instanceID: 38280}
+      Script: {instanceID: 46186}
+    - Class: 114
+      Script: {instanceID: 38282}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -422,12 +425,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime
     namespaceName: UnityEngine.Rendering.Universal
     className: UniversalRenderPipelineAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 7b8d9cb6d8447247797cd8a951f69be7
-    assemblyName: Assembly-CSharp
-    namespaceName: Kamatte.Core
-    className: MatchmakingController
   - hash:
       serializedVersion: 2
       Hash: 95c8a8c68e664d4868755f06e7c55997
@@ -1312,6 +1309,12 @@ ScriptsOnlyBuild:
     className: OnScreenStick
   - hash:
       serializedVersion: 2
+      Hash: 7b8d9cb6d8447247797cd8a951f69be7
+    assemblyName: Assembly-CSharp
+    namespaceName: Kamatte.Core
+    className: MatchmakingController
+  - hash:
+      serializedVersion: 2
       Hash: e8fd74e57e72e8e4ef28792881adb864
     assemblyName: Unity.RenderPipelines.Core.Runtime
     namespaceName: UnityEngine.Rendering.UI
@@ -1930,6 +1933,12 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: d0154a3bd857680af9f97282c294bd6b
+    assemblyName: Assembly-CSharp
+    namespaceName: Move.Player
+    className: PlayerSpawner
+  - hash:
+      serializedVersion: 2
       Hash: b88e78b6860b6061b2c681ea9b80b6bf
     assemblyName: Unity.RenderPipelines.Core.Runtime
     namespaceName: UnityEngine.Rendering.UI
@@ -2004,4 +2013,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
   nativeClasses: 
-  playerPath: C:/Users/student/Desktop/Game/House/Move/Build/Move.exe
+  playerPath: C:/Users/student/Desktop/InternetPractice/Move/Build/Move.exe

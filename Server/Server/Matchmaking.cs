@@ -48,7 +48,11 @@ namespace Move.Server
             // playerへマッチ結果を送信
             SendMatchResult(player1, roomId, opponentId: player2.Id);
             SendMatchResult(player2, roomId, opponentId: player1.Id);
-            
+
+            //  Player生成命令を発信
+            SendSpawnCommand(player1, player1.Id, spawnX: -5f, spawnY: 0f, spawnZ: 0f);
+            SendSpawnCommand(player2, player2.Id, spawnX:  5f, spawnY: 0f, spawnZ: 0f);
+
             _waitingList.RemoveRange(count - 2, 2);
         }
 
@@ -61,6 +65,21 @@ namespace Move.Server
             _cachedWriter.Put(opponentId);
 
             peer.Send(_cachedWriter, DeliveryMethod.ReliableOrdered);
+        }
+
+        //  マッチ開始時のプレイヤー生成命令発信
+        void SendSpawnCommand(
+            NetPeer toPeer, int playerId, float spawnX, float spawnY, float spawnZ
+            )
+        {
+            _cachedWriter.Reset();
+            _cachedWriter.Put((byte)PacketType.SpawnPlayer);
+            _cachedWriter.Put(playerId);
+            _cachedWriter.Put(spawnX);
+            _cachedWriter.Put(spawnY);
+            _cachedWriter.Put(spawnZ);
+
+            toPeer.Send(_cachedWriter, DeliveryMethod.ReliableOrdered);
         }
 
         //  切断制御クラス

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Game
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 112}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 19
+  controlID: 108
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -95,8 +95,8 @@ MonoBehaviour:
     y: 0
     width: 446
     height: 933
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -121,8 +121,8 @@ MonoBehaviour:
     y: 0
     width: 267
     height: 595
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 20
+  controlID: 79
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 56}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 21
+  controlID: 50
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -298,8 +298,8 @@ MonoBehaviour:
     y: 0
     width: 584
     height: 595
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -715,7 +715,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Script/C#/NetWork/Client
+    - Assets/Script/C#/Character
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -725,25 +725,24 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Script/C#/NetWork/Client
+  - Assets/Script/C#/Character
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\student\Desktop\Game\House\Move
+  m_LastProjectPath: C:\Users\student\Desktop\InternetPractice\Move
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 31}
     m_SelectedIDs:
-    - m_Data: 48420
+    - m_Data: 48412
     m_LastClickedID:
-      m_Data: 48420
+      m_Data: 48412
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 48038
-    - m_Data: 48040
-    - m_Data: 48370
-    - m_Data: 48422
-    - m_Data: 48424
+    - m_Data: 48044
+    - m_Data: 48356
+    - m_Data: 48408
+    - m_Data: 48410
     - m_Data: 2147483647
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -778,8 +777,8 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 48038
-    - m_Data: 48040
+    - m_Data: 48044
+    - m_Data: 48046
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -807,16 +806,15 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs:
-    - m_Data: -11948
+    m_SelectedInstanceIDs: []
     m_LastClickedEntityId:
-      m_Data: -11948
+      m_Data: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: []
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: OnDataReceive
-      m_OriginalName: OnDataReceive
+      m_Name: Prefab
+      m_OriginalName: Prefab
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
@@ -824,7 +822,7 @@ MonoBehaviour:
         width: 0
         height: 0
       m_UserData:
-        m_Data: 48440
+        m_Data: 53626
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -940,10 +938,17 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -29058
-      - m_Data: -28684
-      - m_Data: -28670
+      - m_Data: -32124
+      - m_Data: -31748
+      - m_Data: -31722
+      - m_Data: -25478
+      - m_Data: -25102
+      - m_Data: -25072
+      - m_Data: -10628
+      - m_Data: -10254
+      - m_Data: -10232
       - m_Data: -1326
+      - m_Data: 54844
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1481,9 +1486,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 0.1951602, y: 1.0220987, z: 0.64037186}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: 0.1951602, y: 1.0220987, z: 0.64037186}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1534,9 +1539,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.11478699, y: 0.65970176, z: -0.10295209, w: -0.73553956}
   m_Size:
-    m_Target: 9.748245
+    m_Target: 10
     speed: 2
-    m_Value: 9.748245
+    m_Value: 10
   m_Ortho:
     m_Target: 0
     speed: 2
