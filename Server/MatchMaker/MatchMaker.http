@@ -1,0 +1,6 @@
+@MatchMaker_HostAddress = http://localhost:5166
+
+GET {{MatchMaker_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

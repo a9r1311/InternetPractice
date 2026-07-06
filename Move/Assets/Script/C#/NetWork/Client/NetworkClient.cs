@@ -1,15 +1,14 @@
 ﻿using LiteNetLib;
 using LiteNetLib.Utils;
-using Move.Character;
-using Move.Core;
-using Move.Packet;
-using Move.Player;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
+using Move.Character;
+using Move.Core;
+using Move.Packet;
+using Move.Player;
 
 namespace Move.Client
 {
@@ -47,14 +46,24 @@ namespace Move.Client
             _sender = new NetworkSender(this, _serverPeer);
         }
 
-        void Start()
+        async void Start()
         {
-            //  ポート番号確保
+            //  メモリ確保
             _client.Start();
 
-            //  接続開始
-            _client.Connect(_ipAddress, _port, "");
-            Debug.Log($"[通信] サーバー（{_ipAddress}:{_port}）への接続を開始しました...");
+            Debug.Log("[通信] マッチメーカーに試合用サーバーの割り当てを要請中...");
+
+            ServerInfo info = await ClientMatchmaker.RequestMatchServerAsync();
+
+            if (!string.IsNullOrEmpty(info.IpAddress) && info.Port != 0)
+            {
+                _client.Connect(info.IpAddress, info.Port, "");
+                Debug.Log($"[通信] 割り当てられた試合サーバー（{info.IpAddress}:{info.Port}）への接続を開始しました...");
+            }
+            else
+            {
+                Debug.LogError("[通信崩壊] 有効な試合サーバーの情報を取得できなかったため、接続を断念しました。");
+            }
         }
 
         void Update()
