@@ -102,11 +102,13 @@ namespace Move.Server
                         }
                     case PacketType.Position:
                         {
+                            //  座標受信処理
                             HandlePositionReceive(peer, reader);
                             break;
                         }
                     case PacketType.GoMatch:
                         {
+                            //  マッチング信号受信処理
                             HandleGoMatchReceive(peer);
                             break;
                         }
@@ -157,10 +159,28 @@ namespace Move.Server
         //  座標受信処理
         void HandlePositionReceive(NetPeer peer, NetPacketReader reader)
         {
+            int senderID = GetPlayerId(peer);
             float posX = reader.GetFloat();
             float posY = reader.GetFloat();
             float posZ = reader.GetFloat();
             Console.WriteLine($"[受信成功] プレイヤー {GetPlayerId(peer)} -> 位置:({posX:F2}, {posY:F2}, {posZ:F2})");
+
+            NetPeer[] roomPlayers = _matchmaking.GetRoomPlayers(peer);
+            if (roomPlayers == null) return;
+
+            NetDataWriter moveWriter = new NetDataWriter();
+            moveWriter.Put((byte)PacketType.Position);
+            moveWriter.Put(senderID);
+            moveWriter.Put(posX);
+            moveWriter.Put(posY);
+            moveWriter.Put(posZ);
+
+            foreach (var targetPeer in roomPlayers)
+            {
+                if (targetPeer == peer) continue;
+
+                targetPeer.Send(moveWriter, DeliveryMethod.Unreliable);
+            }
         }
 
         //  マッチング受信処理

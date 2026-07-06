@@ -54,7 +54,7 @@ namespace Move.Client
             
             //  送信
             _serverPeer.Send(_writer, DeliveryMethod.Unreliable);
-            Debug.LogWarning("送信");
+            Debug.Log("送信");
 
         }
         //  接続先が変わった時に_serverPeerを更新
