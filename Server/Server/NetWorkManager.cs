@@ -154,6 +154,7 @@ namespace Move.Server
             NetPeer[] roomPlayers = _matchmaking.GetRoomPlayers(peer);
             if (roomPlayers == null) return;
 
+            _cachedWriter.Reset();
             _cachedWriter.Put((byte)PacketType.Position);
             _cachedWriter.Put(senderID);
             _cachedWriter.Put(posX);
