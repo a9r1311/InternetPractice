@@ -114,11 +114,6 @@ namespace Move.Client
 
                 switch (packetType)
                 {
-                    case PacketType.Message:    //  文字列受信
-                        {
-                            string message = reader.GetString();
-                            break;
-                        }
                     case PacketType.AssignPlayerId:    //  プレイヤーID受信
                         {
                             HandleAssignPlayerID(reader);
