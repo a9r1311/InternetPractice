@@ -32,6 +32,20 @@ namespace Move.Server
             }
         }
 
+        public NetPeer[] GetRoomPlayers(NetPeer peer)
+        {
+            // 現在アクティブな全部屋をループして、引数のpeerが含まれている部屋を探す
+            foreach (var room in _activeRooms.Values)
+            {
+                // 配列なので最速で判定可能
+                if (room[0] == peer || room[1] == peer)
+                {
+                    return room;
+                }
+            }
+            return null;
+        }
+
         //  マッチング
         void TriggerMatchSuccess()
         {

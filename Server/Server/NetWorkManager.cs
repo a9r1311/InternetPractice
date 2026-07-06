@@ -10,7 +10,6 @@ namespace Move.Server
     {
         NetManager _server;
 
-        readonly OnDataReceive _onDataReceive = new OnDataReceive();    //  情報を受信した時のクラス
         readonly Matchmaking _matchmaking = new Matchmaking();    //  マッチングクラス
 
         readonly Dictionary<NetPeer, int> _connectedPlayers = new Dictionary<NetPeer, int>();    //  PeerがKeyのID辞書
@@ -41,7 +40,6 @@ namespace Move.Server
         {
             Instance = this;
             _server = new NetManager(this);
-            _onDataReceive.OnGoMatchReceived += _matchmaking.AddWaitiongList;
 
             _server.Start(port);
             Console.WriteLine($"サーバーがポート {port} で起動しました。");
@@ -90,9 +88,39 @@ namespace Move.Server
         //  データ受信処理
         public void OnNetworkReceive(NetPeer peer, NetPacketReader reader, byte channelNumber, DeliveryMethod deliveryMethod)
         {
-            PacketContext context = new PacketContext(peer, reader);
-            _onDataReceive.Receive(context);
+            try
+            {
+                PacketType packetType = (PacketType)reader.GetByte();
 
+                switch (packetType)
+                {
+                    case PacketType.Message:
+                        {
+                            //  メッセージ受信処理
+                            HandleMessageReceive(peer, reader);
+                            break;
+                        }
+                    case PacketType.Position:
+                        {
+                            HandlePositionReceive(peer, reader);
+                            break;
+                        }
+                    case PacketType.GoMatch:
+                        {
+                            HandleGoMatchReceive(peer);
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine($"[警告] 知らないパケットIDが届きました: {packetType}");
+                            break;
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"データ受信エラー: {ex.Message}");
+            }
             reader.Recycle();
         }
         
@@ -117,6 +145,28 @@ namespace Move.Server
 
         public void OnNetworkReceiveUnconnected(IPEndPoint remoteEndPoint, NetPacketReader reader, UnconnectedMessageType messageType)
         {
+        }
+
+        //  メッセージを受信処理
+        void HandleMessageReceive(NetPeer peer, NetPacketReader reader)
+        {
+            string message = reader.GetString();
+            Console.WriteLine($"[データ受信] プレイヤー {peer.Id} から: {message}");
+        }
+
+        //  座標受信処理
+        void HandlePositionReceive(NetPeer peer, NetPacketReader reader)
+        {
+            float posX = reader.GetFloat();
+            float posY = reader.GetFloat();
+            float posZ = reader.GetFloat();
+            Console.WriteLine($"[受信成功] プレイヤー {GetPlayerId(peer)} -> 位置:({posX:F2}, {posY:F2}, {posZ:F2})");
+        }
+
+        //  マッチング受信処理
+        void HandleGoMatchReceive(NetPeer peer)
+        {
+            _matchmaking.AddWaitiongList(peer);
         }
 
         //  プレイヤーID送信

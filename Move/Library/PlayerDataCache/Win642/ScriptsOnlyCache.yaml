@@ -1,10 +1,13 @@
 ScriptsOnlyBuild:
   usedScripts:
+    Assembly-CSharp-Editor.dll:
+    - ReadmeEditor
     Assembly-CSharp.dll:
     - Kamatte.Core.MatchmakingController
     - Move.Client.NetworkClient
     - Move.Player.PlayerInputController
     - Move.Player.PlayerSpawner
+    - Readme
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
     - UnityEngine.InputSystem.InputSettings
@@ -1603,7 +1606,7 @@ ScriptsOnlyBuild:
     className: UIFoldout
   - hash:
       serializedVersion: 2
-      Hash: 6f4445d36eb0c3940faab887f26ff3e2
+      Hash: 9a86c066c8a23a9be4d831da81e94eca
     assemblyName: Assembly-CSharp
     namespaceName: Move.Player
     className: PlayerInputController
