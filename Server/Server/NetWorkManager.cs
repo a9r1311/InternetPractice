@@ -11,6 +11,7 @@ namespace Move.Server
         NetManager _server;
 
         readonly Matchmaking _matchmaking = new Matchmaking();    //  マッチングクラス
+        readonly NetDataWriter _cachedWriter = new NetDataWriter();
 
         readonly Dictionary<NetPeer, int> _connectedPlayers = new Dictionary<NetPeer, int>();    //  PeerがKeyのID辞書
         static readonly Dictionary<int, NetPeer> _idToPeers = new Dictionary<int, NetPeer>();    //  IDがKeyのPeer辞書
@@ -94,21 +95,13 @@ namespace Move.Server
 
                 switch (packetType)
                 {
-                    case PacketType.Message:
+                    case PacketType.Position:  // 座標変化受信
                         {
-                            //  メッセージ受信処理
-                            HandleMessageReceive(peer, reader);
-                            break;
-                        }
-                    case PacketType.Position:
-                        {
-                            //  座標受信処理
                             HandlePositionReceive(peer, reader);
                             break;
                         }
-                    case PacketType.GoMatch:
+                    case PacketType.GoMatch:  // マッチング受信
                         {
-                            //  マッチング信号受信処理
                             HandleGoMatchReceive(peer);
                             break;
                         }
@@ -132,6 +125,7 @@ namespace Move.Server
             {
                 _matchmaking.HandleDisconnect(peer);
                 _connectedPlayers.Remove(peer);
+                _idToPeers.Remove(id);
                 Console.WriteLine($"[切断] ゲーム用ID【{id}】のプレイヤーが退出しました。理由: {disconnectInfo.Reason}");
             }
         }
@@ -149,13 +143,6 @@ namespace Move.Server
         {
         }
 
-        //  メッセージを受信処理
-        void HandleMessageReceive(NetPeer peer, NetPacketReader reader)
-        {
-            string message = reader.GetString();
-            Console.WriteLine($"[データ受信] プレイヤー {peer.Id} から: {message}");
-        }
-
         //  座標受信処理
         void HandlePositionReceive(NetPeer peer, NetPacketReader reader)
         {
@@ -163,23 +150,21 @@ namespace Move.Server
             float posX = reader.GetFloat();
             float posY = reader.GetFloat();
             float posZ = reader.GetFloat();
-            Console.WriteLine($"[受信成功] プレイヤー {GetPlayerId(peer)} -> 位置:({posX:F2}, {posY:F2}, {posZ:F2})");
 
             NetPeer[] roomPlayers = _matchmaking.GetRoomPlayers(peer);
             if (roomPlayers == null) return;
 
-            NetDataWriter moveWriter = new NetDataWriter();
-            moveWriter.Put((byte)PacketType.Position);
-            moveWriter.Put(senderID);
-            moveWriter.Put(posX);
-            moveWriter.Put(posY);
-            moveWriter.Put(posZ);
+            _cachedWriter.Put((byte)PacketType.Position);
+            _cachedWriter.Put(senderID);
+            _cachedWriter.Put(posX);
+            _cachedWriter.Put(posY);
+            _cachedWriter.Put(posZ);
 
             foreach (var targetPeer in roomPlayers)
             {
                 if (targetPeer == peer) continue;
 
-                targetPeer.Send(moveWriter, DeliveryMethod.Unreliable);
+                targetPeer.Send(_cachedWriter, DeliveryMethod.Unreliable);
             }
         }
 
@@ -192,12 +177,12 @@ namespace Move.Server
         //  プレイヤーID送信
         void SendAssignIdPacket(NetPeer peer, int assignedId)
         {
-            NetDataWriter writer = new NetDataWriter();
+            _cachedWriter.Reset();
 
-            writer.Put((byte)PacketType.AssignPlayerId);
-            writer.Put(assignedId);
+            _cachedWriter.Put((byte)PacketType.AssignPlayerId);
+            _cachedWriter.Put(assignedId);
             
-            peer.Send(writer, DeliveryMethod.ReliableOrdered);
+            peer.Send(_cachedWriter, DeliveryMethod.ReliableOrdered);
         }
     }
 }
