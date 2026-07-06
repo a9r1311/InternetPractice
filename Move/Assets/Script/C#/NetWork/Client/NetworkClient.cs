@@ -128,7 +128,6 @@ namespace Move.Client
                         }
                     case PacketType.SpawnPlayer:    //  プレイヤー生成受信
                         {
-                            Debug.Log("成功生成");
                             HandleSpawnPlayer(peer, reader);
                             break;
                         }
@@ -186,7 +185,6 @@ namespace Move.Client
         //  プレイヤースポーン処理
         void HandleSpawnPlayer(NetPeer peer, NetPacketReader reader)
         {
-            Debug.Log("生成する");
             int id = reader.GetInt();
 
             Vector3 spwanPos = new Vector3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
