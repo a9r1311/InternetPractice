@@ -1,13 +1,11 @@
 ScriptsOnlyBuild:
   usedScripts:
-    Assembly-CSharp-Editor.dll:
-    - ReadmeEditor
     Assembly-CSharp.dll:
     - Kamatte.Core.MatchmakingController
     - Move.Client.NetworkClient
+    - Move.Core.GameManager
     - Move.Player.PlayerInputController
     - Move.Player.PlayerSpawner
-    - Readme
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
     - UnityEngine.InputSystem.InputSettings
@@ -291,6 +289,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 40666}
     - Class: 114
       Script: {instanceID: 34768}
+    - Class: 114
+      Script: {instanceID: 48652}
     - Class: 114
       Script: {instanceID: 43438}
     - Class: 114
@@ -2012,6 +2012,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 755b05067d97008010c259531b634de0
+    assemblyName: Assembly-CSharp
+    namespaceName: Move.Core
+    className: GameManager
+  - hash:
+      serializedVersion: 2
+      Hash: cbfa1f812b25c1697dfa810fb939298a
+    assemblyName: Assembly-CSharp
+    namespaceName: Move.Character
+    className: RemoteCharacterController
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

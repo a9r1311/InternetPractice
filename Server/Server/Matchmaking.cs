@@ -32,12 +32,11 @@ namespace Move.Server
             }
         }
 
+        //  アクティブな部屋の接続を取得
         public NetPeer[] GetRoomPlayers(NetPeer peer)
         {
-            // 現在アクティブな全部屋をループして、引数のpeerが含まれている部屋を探す
             foreach (var room in _activeRooms.Values)
             {
-                // 配列なので最速で判定可能
                 if (room[0] == peer || room[1] == peer)
                 {
                     return room;
@@ -100,7 +99,7 @@ namespace Move.Server
             toPeer.Send(_cachedWriter, DeliveryMethod.ReliableOrdered);
         }
 
-        //  切断制御クラス
+        //  切断制御関数
         public void HandleDisconnect(NetPeer peer)
         {
             if (_waitingList.Remove(peer))

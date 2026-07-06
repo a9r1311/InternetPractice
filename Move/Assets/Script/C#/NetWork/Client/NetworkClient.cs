@@ -1,5 +1,7 @@
 ﻿using LiteNetLib;
 using LiteNetLib.Utils;
+using Move.Character;
+using Move.Core;
 using Move.Packet;
 using Move.Player;
 using System;
@@ -7,6 +9,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace Move.Client
 {
@@ -15,7 +18,7 @@ namespace Move.Client
     {
         public static NetworkClient Instance { get; private set; }
         
-        int playerID;           //  サーバーから割り振られたプレイヤーID
+        int _playerID;           //  サーバーから割り振られたプレイヤーID
         NetManager _client;     //  自分自身がリスナー
         NetPeer _serverPeer;    // 接続先
 
@@ -25,6 +28,7 @@ namespace Move.Client
         [SerializeField] string _ipAddress = "127.0.0.1";    //  ローカルホスト
         [SerializeField] int _port = 9050;                   // サーバーポート
 
+        int _connetctedPlayerID;    //  通信相手のキャラクターID
         readonly Dictionary<int, GameObject> _spawnedPlayers = new Dictionary<int, GameObject>();
 
         //  外部クラスからマッチ成功時処理に触るためのプロパティ
@@ -95,7 +99,7 @@ namespace Move.Client
             _serverPeer = peer;
             _sender.UpdateServerPeer(_serverPeer);
 
-            playerID = peer.Id;
+            _playerID = peer.Id;
             Debug.Log($"[通信成功] サーバーに接続しました！ あなたの仮ID: {peer.Id}");
         }
 
@@ -120,9 +124,14 @@ namespace Move.Client
                             HandleAssignPlayerID(reader);
                             break;
                         }
+                    case PacketType.Position:    //  プレイヤーID受信
+                        {
+                            HandlePosition(reader);
+                            break;
+                        }
                     case PacketType.MatchSuccess:    //  マッチ成功受信
                         {
-                            Debug.Log("マッチ成功");
+                            HandleMatchSuccess(reader);
                             OnMatchmakingSuccess?.Invoke();
                             break;
                         }
@@ -133,14 +142,14 @@ namespace Move.Client
                         }
                     default:
                         {
-                            Console.WriteLine($"[警告] 知らないパケットIDが届きました: {packetType}");
+                            Debug.LogWarning($"知らないパケットIDが届きました: {packetType}");
                             break;
                         }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"データ受信エラー: {ex.Message}");
+                Debug.LogError($"データ受信エラー: {ex.Message}");
             }
             reader.Recycle();
         }
@@ -179,7 +188,31 @@ namespace Move.Client
         //  ID割り当てられ処理
         void HandleAssignPlayerID(NetPacketReader reader)
         {
-            playerID = reader.GetInt();
+            _playerID = reader.GetInt();
+        }
+
+        //  座標受信時処理
+        void HandlePosition(NetPacketReader reader)
+        {
+            int id = reader.GetInt();
+            float x = reader.GetFloat();
+            float y = reader.GetFloat();
+            float z = reader.GetFloat();
+
+            if (id == _playerID) return;
+
+            Vector3 targetPos = new Vector3(x, y, z);
+
+
+            GameManager.Instance.UpdateRemotePlayerPosition(id, targetPos);
+        }
+
+        //  マッチ成功受信処理
+        void HandleMatchSuccess(NetPacketReader reader)
+        {
+            int RoomID = reader.GetInt();
+            _connetctedPlayerID = reader.GetInt();
+            Debug.Log($"マッチ成功 対戦相手ID → [{_connetctedPlayerID}]");
         }
 
         //  プレイヤースポーン処理
@@ -188,15 +221,19 @@ namespace Move.Client
             int id = reader.GetInt();
 
             Vector3 spwanPos = new Vector3(reader.GetFloat(), reader.GetFloat(), reader.GetFloat());
-            GameObject playerObj = PlayerSpawner.Instance.Spawn(spwanPos);
+            GameObject characterObj = PlayerSpawner.Instance.Spawn(spwanPos);
 
-            if (_spawnedPlayers.ContainsKey(id)) _spawnedPlayers.Remove(id);
-            _spawnedPlayers.Add(id, playerObj);
+            _spawnedPlayers[id] = characterObj;
 
-            if (id == playerID)
+            if (id == _playerID)
             {
-                playerObj.AddComponent<PlayerInputController>();
+                characterObj.AddComponent<PlayerInputController>();
                 Debug.Log($" 自身のObjectに、操作スクリプトをアタッチしました。");
+            }
+            else
+            {
+                var remoteCtrl = characterObj.AddComponent<RemoteCharacterController>();
+                GameManager.Instance.RegisterRemotePlayer(_connetctedPlayerID, remoteCtrl);
             }
 
             //OnPlayerSpawnedWithInstance?.Invoke(id, playerObj);
