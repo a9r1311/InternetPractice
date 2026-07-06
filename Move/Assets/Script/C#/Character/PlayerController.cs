@@ -9,7 +9,7 @@ namespace Move.Player
     {
         [Header("移動設定")]
         [SerializeField] float _moveSpeed = 5f;
-        [SerializeField] NetworkClient _networkClient; // あなたの作ったClient窓口
+        //[SerializeField] NetworkClient _networkClient; // あなたの作ったClient窓口
 
         // ビットフラグの定義（前:1, 後:2, 左:4, 右:8）
         const byte INPUT_UP    = 1 << 0;    //  00000001 (1)
@@ -48,7 +48,8 @@ namespace Move.Player
                 _transform.position += moveDir * (_moveSpeed * Time.deltaTime);
             }
 
-            _networkClient.SendPosition(_transform.position);
+            NetworkClient.Instance.SendPosition(_transform.position);
+            //_networkClient.SendPosition(_transform.position);
         }
     }
 }

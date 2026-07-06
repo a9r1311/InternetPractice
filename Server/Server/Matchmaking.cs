@@ -10,7 +10,7 @@ namespace Move.Server
         readonly List<NetPeer> _waitingList = new List<NetPeer>(100);    //  マッチ待ち列
 
         int _nextRoomId = 1;
-        readonly Dictionary<int, List<NetPeer>> _activeRooms = new Dictionary<int, List<NetPeer>>();    //  ゲーム中のマッチ部屋
+        readonly Dictionary<int, NetPeer[]> _activeRooms = new Dictionary<int, NetPeer[]>();    //  ゲーム中のマッチ部屋
 
         readonly NetDataWriter _cachedWriter = new NetDataWriter();
 
@@ -38,20 +38,24 @@ namespace Move.Server
             int count = _waitingList.Count;
             NetPeer player1 = _waitingList[count - 1];
             NetPeer player2 = _waitingList[count - 2];
+            int player1ID = NetworkManager.GetPlayerId(player1);
+            int player2ID = NetworkManager.GetPlayerId(player2);
 
             int roomId = _nextRoomId++;
-            var roomPlayers = new List<NetPeer>(2) { player1, player2 };
-            
+            var roomPlayers = new NetPeer[2] { player1, player2 };
+
             _activeRooms.Add(roomId, roomPlayers);
             Console.WriteLine($"[マッチング成功] 部屋番号【{roomId}】が作成されました！ メンバー: Peer[{player1.Id}], Peer[{player2.Id}]");
 
             // playerへマッチ結果を送信
-            SendMatchResult(player1, roomId, opponentId: player2.Id);
-            SendMatchResult(player2, roomId, opponentId: player1.Id);
+            SendMatchResult(player1, roomId, opponentId: player2ID);
+            SendMatchResult(player2, roomId, opponentId: player1ID);
 
-            //  Player生成命令を発信
-            SendSpawnCommand(player1, player1.Id, spawnX: -5f, spawnY: 0f, spawnZ: 0f);
-            SendSpawnCommand(player2, player2.Id, spawnX:  5f, spawnY: 0f, spawnZ: 0f);
+            foreach (var toPeer in roomPlayers)
+            {
+                SendSpawnCommand(toPeer, player1ID, spawnX: -5f, spawnY: 0f, spawnZ: 0f);
+                SendSpawnCommand(toPeer, player2ID, spawnX: 5f, spawnY: 0f, spawnZ: 0f);
+            }
 
             _waitingList.RemoveRange(count - 2, 2);
         }
