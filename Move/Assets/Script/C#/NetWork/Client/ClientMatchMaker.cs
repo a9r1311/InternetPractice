@@ -6,7 +6,7 @@ namespace Move.Client
 {
     public static class ClientMatchmaker
     {
-        private const string MatchmakerUrl = "http://127.0.0.1:5000/api/match/request";
+        private const string MatchmakerUrl = "http://10.219.32.59:5000/api/match/request";
         public static async Task<ServerInfo> RequestMatchServerAsync()
         {
             ServerInfo serverInfo = default;
