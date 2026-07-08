@@ -31,8 +31,8 @@ namespace Move.Client
                 {
                     string jsonResult = webRequest.downloadHandler.text;
                     serverInfo = JsonUtility.FromJson<ServerInfo>(jsonResult);
-
-                    Debug.Log($"[マッチメーカー成功] 試合サーバーを確保しました。 接続先 -> {serverInfo.IpAddress}:{serverInfo.Port}");
+                    
+                    Debug.Log($"[マッチメーカー成功] 試合サーバーを確保しました。 接続先 -> {serverInfo.ipAddress}:{serverInfo.port}");
                 }
                 catch (System.Exception ex)
                 {

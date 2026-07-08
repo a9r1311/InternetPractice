@@ -286,125 +286,125 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 40666}
+      Script: {instanceID: 40680}
     - Class: 114
-      Script: {instanceID: 34768}
+      Script: {instanceID: 34780}
     - Class: 114
-      Script: {instanceID: 48652}
+      Script: {instanceID: 46560}
     - Class: 114
-      Script: {instanceID: 43438}
+      Script: {instanceID: 43452}
     - Class: 114
-      Script: {instanceID: 45960}
+      Script: {instanceID: 45974}
     - Class: 114
-      Script: {instanceID: 37050}
+      Script: {instanceID: 37062}
     - Class: 114
-      Script: {instanceID: 43900}
+      Script: {instanceID: 43914}
     - Class: 114
-      Script: {instanceID: 42364}
+      Script: {instanceID: 42378}
     - Class: 114
-      Script: {instanceID: 39582}
+      Script: {instanceID: 39594}
     - Class: 114
-      Script: {instanceID: 37016}
+      Script: {instanceID: 37028}
     - Class: 114
-      Script: {instanceID: 45292}
+      Script: {instanceID: 45306}
     - Class: 114
-      Script: {instanceID: 39788}
+      Script: {instanceID: 39800}
     - Class: 114
-      Script: {instanceID: 36888}
+      Script: {instanceID: 36900}
     - Class: 114
-      Script: {instanceID: 39508}
+      Script: {instanceID: 39520}
     - Class: 114
-      Script: {instanceID: 39664}
+      Script: {instanceID: 39676}
     - Class: 114
-      Script: {instanceID: 35120}
+      Script: {instanceID: 35132}
     - Class: 114
-      Script: {instanceID: 36982}
+      Script: {instanceID: 36994}
     - Class: 114
-      Script: {instanceID: 35324}
+      Script: {instanceID: 35336}
     - Class: 114
-      Script: {instanceID: 43844}
+      Script: {instanceID: 43858}
     - Class: 114
-      Script: {instanceID: 36568}
+      Script: {instanceID: 36580}
     - Class: 114
-      Script: {instanceID: 34316}
+      Script: {instanceID: 34324}
     - Class: 114
-      Script: {instanceID: 39020}
+      Script: {instanceID: 39032}
     - Class: 114
-      Script: {instanceID: 34592}
+      Script: {instanceID: 34602}
     - Class: 114
-      Script: {instanceID: 36336}
+      Script: {instanceID: 36348}
     - Class: 114
-      Script: {instanceID: 40714}
+      Script: {instanceID: 40728}
     - Class: 114
-      Script: {instanceID: 44186}
+      Script: {instanceID: 44200}
     - Class: 114
-      Script: {instanceID: 45262}
+      Script: {instanceID: 45276}
     - Class: 114
-      Script: {instanceID: 39100}
+      Script: {instanceID: 39112}
     - Class: 114
-      Script: {instanceID: 34994}
+      Script: {instanceID: 35006}
     - Class: 114
-      Script: {instanceID: 46016}
+      Script: {instanceID: 46030}
     - Class: 114
-      Script: {instanceID: 44918}
+      Script: {instanceID: 44932}
     - Class: 114
-      Script: {instanceID: 40712}
+      Script: {instanceID: 40726}
     - Class: 114
-      Script: {instanceID: 40610}
+      Script: {instanceID: 40624}
     - Class: 114
-      Script: {instanceID: 39064}
+      Script: {instanceID: 39076}
     - Class: 114
-      Script: {instanceID: 41740}
+      Script: {instanceID: 41754}
     - Class: 114
-      Script: {instanceID: 45170}
+      Script: {instanceID: 45184}
     - Class: 114
-      Script: {instanceID: 36924}
+      Script: {instanceID: 36936}
     - Class: 114
-      Script: {instanceID: 45454}
+      Script: {instanceID: 45468}
     - Class: 114
-      Script: {instanceID: 43410}
+      Script: {instanceID: 43424}
     - Class: 114
-      Script: {instanceID: 36470}
+      Script: {instanceID: 36482}
     - Class: 114
-      Script: {instanceID: 38964}
+      Script: {instanceID: 38976}
     - Class: 114
-      Script: {instanceID: 39478}
+      Script: {instanceID: 39490}
     - Class: 114
-      Script: {instanceID: 39358}
+      Script: {instanceID: 39370}
     - Class: 114
-      Script: {instanceID: 42340}
+      Script: {instanceID: 42354}
     - Class: 114
-      Script: {instanceID: 35234}
+      Script: {instanceID: 35246}
     - Class: 114
-      Script: {instanceID: 35058}
+      Script: {instanceID: 35070}
     - Class: 114
-      Script: {instanceID: 42214}
+      Script: {instanceID: 42228}
     - Class: 114
-      Script: {instanceID: 36398}
+      Script: {instanceID: 36410}
     - Class: 114
-      Script: {instanceID: 45026}
+      Script: {instanceID: 45040}
     - Class: 114
-      Script: {instanceID: 36796}
+      Script: {instanceID: 36808}
     - Class: 114
-      Script: {instanceID: 40966}
+      Script: {instanceID: 40980}
     - Class: 114
-      Script: {instanceID: 35726}
+      Script: {instanceID: 35738}
     - Class: 114
-      Script: {instanceID: 35456}
+      Script: {instanceID: 35468}
     - Class: 114
-      Script: {instanceID: 37938}
+      Script: {instanceID: 37950}
     - Class: 114
-      Script: {instanceID: 45708}
+      Script: {instanceID: 45722}
     - Class: 114
-      Script: {instanceID: 44348}
+      Script: {instanceID: 44362}
     - Class: 114
-      Script: {instanceID: 40416}
+      Script: {instanceID: 40428}
     - Class: 114
-      Script: {instanceID: 44256}
+      Script: {instanceID: 44270}
     - Class: 114
-      Script: {instanceID: 46186}
+      Script: {instanceID: 46200}
     - Class: 114
-      Script: {instanceID: 38282}
+      Script: {instanceID: 38294}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -520,6 +520,12 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
+      Hash: cbfa1f812b25c1697dfa810fb939298a
+    assemblyName: Assembly-CSharp
+    namespaceName: Move.Character
+    className: RemoteCharacterController
+  - hash:
+      serializedVersion: 2
       Hash: 4392bfff79efe0630144f16ea4d656ab
     assemblyName: Unity.RenderPipelines.Core.Runtime
     namespaceName: UnityEngine.Rendering.UI
@@ -538,7 +544,7 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 6257cdc63cb9cb407242029823f5a6f1
+      Hash: aa97a422cef54e5c2e6e2fea1076033f
     assemblyName: Assembly-CSharp
     namespaceName: Move.Client
     className: NetworkClient
@@ -2002,6 +2008,12 @@ ScriptsOnlyBuild:
     className: Renderer2DData
   - hash:
       serializedVersion: 2
+      Hash: 755b05067d97008010c259531b634de0
+    assemblyName: Assembly-CSharp
+    namespaceName: Move.Core
+    className: GameManager
+  - hash:
+      serializedVersion: 2
       Hash: d82086405f46de14829f6b4bcbdd8fc9
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -2012,18 +2024,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 755b05067d97008010c259531b634de0
-    assemblyName: Assembly-CSharp
-    namespaceName: Move.Core
-    className: GameManager
-  - hash:
-      serializedVersion: 2
-      Hash: cbfa1f812b25c1697dfa810fb939298a
-    assemblyName: Assembly-CSharp
-    namespaceName: Move.Character
-    className: RemoteCharacterController
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

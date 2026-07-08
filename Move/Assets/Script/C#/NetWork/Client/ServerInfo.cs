@@ -3,7 +3,7 @@
     [System.Serializable]
     public struct ServerInfo
     {
-        public string IpAddress;
-        public int Port;
+        public string ipAddress;
+        public int port;
     }
 }
