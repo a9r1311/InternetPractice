@@ -13,6 +13,7 @@ using Move.Player;
 namespace Move.Client
 {
     //  クライアントクラス
+    [DisallowMultipleComponent]
     public sealed class NetworkClient : MonoBehaviour, INetEventListener
     {
         public static NetworkClient Instance { get; private set; }

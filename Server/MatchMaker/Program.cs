@@ -14,9 +14,10 @@
 
             app.UseCors();
 
-            app.MapGet("/api/match/request", () => new {
+            app.MapGet("/api/match/request", () => new
+            {
                 ipAddress = "127.0.0.1",
-                port = 9050
+                port = 8000
             });
 
             app.Run("http://127.0.0.1:5000");
