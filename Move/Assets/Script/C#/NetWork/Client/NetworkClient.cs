@@ -16,23 +16,18 @@ namespace Move.Client
     public sealed class NetworkClient : MonoBehaviour, INetEventListener
     {
         public static NetworkClient Instance { get; private set; }
-        
-        int _playerID;           //  サーバーから割り振られたプレイヤーID
-        NetManager _client;     //  自分自身がリスナー
-        NetPeer _serverPeer;    // 接続先
 
-        NetworkSender _sender;
-        readonly NetDataWriter _writer = new NetDataWriter();    //  データ書き込み用クラス
+        int _playerID;  // サーバーから割り振られたプレイヤーID
+        NetManager _client;  //  自分自身がリスナー
+        NetworkSender _sender;  // 送信専門クラス
+        NetPeer _serverPeer;  // 接続先
 
-        [SerializeField] string _ipAddress = "127.0.0.1";    //  ローカルホスト
-        [SerializeField] int _port = 9050;                   // サーバーポート
-
-        int _connetctedPlayerID;    //  通信相手のキャラクターID
+        int _connetctedPlayerID;  // 通信相手のキャラクターID
         readonly Dictionary<int, GameObject> _spawnedPlayers = new Dictionary<int, GameObject>();
 
         //  外部クラスからマッチ成功時処理に触るためのプロパティ
         public static event Action OnMatchmakingSuccess;
-
+        
         //  接続確認プロパティ
         public bool IsConnected =>(
             _serverPeer != null &&
@@ -55,14 +50,14 @@ namespace Move.Client
 
             ServerInfo info = await ClientMatchmaker.RequestMatchServerAsync();
 
-            if (!string.IsNullOrEmpty(info.IpAddress) && info.Port != 0)
+            if (!string.IsNullOrEmpty(info.ipAddress) && info.port != 0)
             {
-                _client.Connect(info.IpAddress, info.Port, "");
-                Debug.Log($"[通信] 割り当てられた試合サーバー（{info.IpAddress}:{info.Port}）への接続を開始しました...");
+                _client.Connect(info.ipAddress, info.port, "");
+                Debug.Log($"[通信] 割り当てられた試合サーバー（{info.ipAddress}:{info.port}）への接続を開始しました");
             }
             else
             {
-                Debug.LogError("[通信崩壊] 有効な試合サーバーの情報を取得できなかったため、接続を断念しました。");
+                Debug.LogError("有効な試合サーバーの情報を取得できなかったため、接続を断念しました。");
             }
         }
 
