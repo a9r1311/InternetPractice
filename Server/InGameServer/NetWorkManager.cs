@@ -1,8 +1,9 @@
-﻿using System.Net;
-using System.Net.Sockets;
+﻿using InGameServer;
 using LiteNetLib;
 using LiteNetLib.Utils;
 using Move.Packet;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Move.Server
 {
@@ -13,10 +14,12 @@ namespace Move.Server
         readonly Matchmaking _matchmaking = new Matchmaking();    //  マッチングクラス
         readonly NetDataWriter _cachedWriter = new NetDataWriter();
 
+        int _assignPlayerId = 1;    //  プレイヤーに割り振るID
         readonly Dictionary<NetPeer, int> _connectedPlayers = new Dictionary<NetPeer, int>();    //  PeerがKeyのID辞書
         static readonly Dictionary<int, NetPeer> _idToPeers = new Dictionary<int, NetPeer>();    //  IDがKeyのPeer辞書
-
-        int _assignPlayerId = 1;    //  プレイヤーに割り振るID
+        
+        readonly Dictionary<NetPeer, PlayerState> _peerStates = new Dictionary<NetPeer, PlayerState>();  // Peerの接続状態辞書
+        readonly Dictionary<NetPeer, int> _authorizedPeers = new Dictionary<NetPeer, int>();  // 認証が取れたユーザー辞書
 
         readonly int connectLimit = 50;  // 最大同時接続人数
         readonly float mapLimit = 10f;  // マップ端
@@ -79,7 +82,6 @@ namespace Move.Server
             {
                 request.Reject();
             }
-            //  今の所制限なし
             request.Accept();
         }
         public void OnPeerConnected(NetPeer peer)
@@ -87,6 +89,8 @@ namespace Move.Server
             int assignedId = _assignPlayerId++;
             _connectedPlayers.Add(peer, assignedId);
             _idToPeers.Add(assignedId, peer);
+
+            _peerStates.Add(peer, PlayerState.Connected);
 
             Console.WriteLine($"[接続受付] 通信ID:{peer.Id} → ゲーム用確定ID「{assignedId}」を発行しました。");
 
