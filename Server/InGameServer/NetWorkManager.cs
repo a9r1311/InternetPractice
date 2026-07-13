@@ -18,6 +18,8 @@ namespace Move.Server
 
         int _assignPlayerId = 1;    //  プレイヤーに割り振るID
 
+        readonly float mapLimit = 10f;  // マップ端
+
         public static NetworkManager Instance { get; private set; }
 
         //  特定の回線を取得する関数
@@ -150,6 +152,16 @@ namespace Move.Server
             float posX = reader.GetFloat();
             float posY = reader.GetFloat();
             float posZ = reader.GetFloat();
+
+            if(
+                float.IsNaN(posX) || float.IsInfinity(posX) || Math.Abs(posX) > mapLimit ||
+                float.IsNaN(posY) || float.IsInfinity(posY) || Math.Abs(posY) > mapLimit ||
+                float.IsNaN(posZ) || float.IsInfinity(posZ) || Math.Abs(posZ) > mapLimit
+                )
+            {
+                Console.WriteLine($"異常値パケットを受信しました: PlayerID {GetPlayerId(peer)}");
+                return;
+            }
 
             NetPeer[] roomPlayers = _matchmaking.GetRoomPlayers(peer);
             if (roomPlayers == null) return;
