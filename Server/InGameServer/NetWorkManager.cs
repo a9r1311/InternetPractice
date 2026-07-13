@@ -18,6 +18,7 @@ namespace Move.Server
 
         int _assignPlayerId = 1;    //  プレイヤーに割り振るID
 
+        readonly int connectLimit = 50;  // 最大同時接続人数
         readonly float mapLimit = 10f;  // マップ端
 
         public static NetworkManager Instance { get; private set; }
@@ -74,6 +75,10 @@ namespace Move.Server
 
         public void OnConnectionRequest(ConnectionRequest request)
         {
+            if(_connectedPlayers.Count >= connectLimit)
+            {
+                request.Reject();
+            }
             //  今の所制限なし
             request.Accept();
         }
