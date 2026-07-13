@@ -124,7 +124,7 @@ namespace Move.Client
                             HandleAssignPlayerID(reader);
                             break;
                         }
-                    case PacketType.Position:    //  プレイヤーID受信
+                    case PacketType.Position:    //  プレイヤー座標
                         {
                             HandlePosition(reader);
                             break;

@@ -81,6 +81,8 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.Universal.WhiteBalance
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.ShaderGraph.Editor.dll:
+    - UnityEditor.ShaderGraph.ShaderGraphProjectSettings
     Unity.TextMeshPro:
     - TMPro.TMP_ColorGradient
     - TMPro.TMP_FontAsset
@@ -324,7 +326,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 40812}
     - Class: 114
-      Script: {instanceID: 34886}
+      Script: {instanceID: 21010}
     - Class: 114
       Script: {instanceID: 46734}
     - Class: 114
@@ -336,23 +338,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 45968}
     - Class: 114
-      Script: {instanceID: 34950}
+      Script: {instanceID: 34952}
     - Class: 114
       Script: {instanceID: 39584}
     - Class: 114
       Script: {instanceID: 44962}
     - Class: 114
-      Script: {instanceID: 34242}
+      Script: {instanceID: 34246}
     - Class: 114
-      Script: {instanceID: 36080}
+      Script: {instanceID: 36082}
     - Class: 114
-      Script: {instanceID: 37180}
+      Script: {instanceID: 37182}
     - Class: 114
       Script: {instanceID: 45088}
     - Class: 114
       Script: {instanceID: 38398}
     - Class: 114
-      Script: {instanceID: 34754}
+      Script: {instanceID: 34758}
     - Class: 114
       Script: {instanceID: 44062}
     - Class: 114
@@ -360,35 +362,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 39722}
     - Class: 114
-      Script: {instanceID: 37146}
+      Script: {instanceID: 37148}
     - Class: 114
       Script: {instanceID: 45464}
     - Class: 114
       Script: {instanceID: 39930}
     - Class: 114
-      Script: {instanceID: 37016}
+      Script: {instanceID: 37018}
     - Class: 114
       Script: {instanceID: 39648}
     - Class: 114
       Script: {instanceID: 39806}
     - Class: 114
-      Script: {instanceID: 35240}
+      Script: {instanceID: 35242}
     - Class: 114
-      Script: {instanceID: 37112}
+      Script: {instanceID: 37114}
     - Class: 114
-      Script: {instanceID: 35446}
+      Script: {instanceID: 35448}
     - Class: 114
       Script: {instanceID: 44006}
     - Class: 114
-      Script: {instanceID: 36696}
+      Script: {instanceID: 36698}
     - Class: 114
-      Script: {instanceID: 34430}
+      Script: {instanceID: 34434}
     - Class: 114
       Script: {instanceID: 39156}
     - Class: 114
-      Script: {instanceID: 34708}
+      Script: {instanceID: 34712}
     - Class: 114
-      Script: {instanceID: 36462}
+      Script: {instanceID: 36464}
     - Class: 114
       Script: {instanceID: 40860}
     - Class: 114
@@ -398,7 +400,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 39236}
     - Class: 114
-      Script: {instanceID: 35114}
+      Script: {instanceID: 35116}
     - Class: 114
       Script: {instanceID: 46196}
     - Class: 114
@@ -414,13 +416,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 45342}
     - Class: 114
-      Script: {instanceID: 37052}
+      Script: {instanceID: 37054}
     - Class: 114
       Script: {instanceID: 45630}
     - Class: 114
       Script: {instanceID: 43568}
     - Class: 114
-      Script: {instanceID: 36598}
+      Script: {instanceID: 36600}
     - Class: 114
       Script: {instanceID: 39100}
     - Class: 114
@@ -430,25 +432,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 42494}
     - Class: 114
-      Script: {instanceID: 35354}
+      Script: {instanceID: 35356}
     - Class: 114
-      Script: {instanceID: 35178}
+      Script: {instanceID: 35180}
     - Class: 114
       Script: {instanceID: 42368}
     - Class: 114
-      Script: {instanceID: 36524}
+      Script: {instanceID: 36526}
     - Class: 114
       Script: {instanceID: 45196}
     - Class: 114
-      Script: {instanceID: 36924}
+      Script: {instanceID: 36926}
     - Class: 114
       Script: {instanceID: 41114}
     - Class: 114
-      Script: {instanceID: 35850}
+      Script: {instanceID: 35852}
     - Class: 114
-      Script: {instanceID: 35580}
+      Script: {instanceID: 35582}
     - Class: 114
-      Script: {instanceID: 38068}
+      Script: {instanceID: 38070}
     - Class: 114
       Script: {instanceID: 45888}
     - Class: 114
@@ -484,6 +486,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime
     namespaceName: UnityEngine.Rendering.Universal
     className: UniversalRenderPipelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: aa97a422cef54e5c2e6e2fea1076033f
+    assemblyName: Assembly-CSharp
+    namespaceName: Move.Client
+    className: NetworkClient
   - hash:
       serializedVersion: 2
       Hash: 95c8a8c68e664d4868755f06e7c55997
@@ -598,12 +606,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: aa97a422cef54e5c2e6e2fea1076033f
-    assemblyName: Assembly-CSharp
-    namespaceName: Move.Client
-    className: NetworkClient
   - hash:
       serializedVersion: 2
       Hash: 092078fc8474b7369f03d561dc582b82
