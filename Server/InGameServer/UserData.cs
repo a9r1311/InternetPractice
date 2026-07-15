@@ -14,12 +14,18 @@ namespace InGameServer.User
         public byte Status;
         public byte Flags;  // 予備フラグ(未使用)
 
-        public short Padding;  // 8Byte倍数に合わせるための調整用
+        public short Padding;  // 構造体Byte調整用
 
         // --- マッチング用ターゲット (4バイト) ---
         public int TargetId;  // マッチング相手のID
 
-        // --- 堅牢性用チェックサム (8バイト) ---
+        // --- チェックサム (8バイト) ---
         public long Checksum;  // 不正なメモリ書き換えを検知するための署名
+
+        public void UpdateChecksum()
+        {
+            long hash = UserId ^ Rating ^ Status ^ Flags ^ TargetId;
+            Checksum = hash;
+        }
     }
 }

@@ -26,14 +26,17 @@ namespace Move.Client
         int _connetctedPlayerID;  // 通信相手のキャラクターID
         readonly Dictionary<int, GameObject> _spawnedPlayers = new Dictionary<int, GameObject>();
 
+
         //  外部クラスからマッチ成功時処理に触るためのプロパティ
         public static event Action OnMatchmakingSuccess;
-        
+
         //  接続確認プロパティ
         public bool IsConnected =>(
             _serverPeer != null &&
             _serverPeer.ConnectionState == ConnectionState.Connected);
-        
+
+        public ProcessDisplayer ProcessDisplay;  // 授業提出用のUIクラス
+
         void Awake()
         {
             Instance = this;
@@ -47,7 +50,8 @@ namespace Move.Client
             //  メモリ確保
             _client.Start();
 
-            Debug.Log("[通信] マッチメーカーに試合用サーバーの割り当てを要請中...");
+            Debug.Log("[通信] マッチメーカーにインゲームサーバーの割り当てを要請中...");
+            ProcessDisplay.ChangeProcessText("Request Ingame server allocation to MatchMake server");
 
             ServerInfo info = await ClientMatchmaker.RequestMatchServerAsync();
 
@@ -55,10 +59,12 @@ namespace Move.Client
             {
                 _client.Connect(info.ipAddress, info.port, "");
                 Debug.Log($"[通信] 割り当てられた試合サーバー（{info.ipAddress}:{info.port}）への接続を開始しました");
+                ProcessDisplay.ChangeProcessText($"Start Connection to allocation server（{info.ipAddress}:{info.port}）");
             }
             else
             {
-                Debug.LogError("有効な試合サーバーの情報を取得できなかったため、接続を断念しました。");
+                Debug.LogError("[通信] 有効な試合サーバーの情報を取得できなかったため、接続を断念しました。");
+                ProcessDisplay.ChangeProcessText("Stop try connect, because couldn't get active server info");
             }
         }
 
@@ -105,7 +111,8 @@ namespace Move.Client
             _sender.UpdateServerPeer(_serverPeer);
 
             _playerID = peer.Id;
-            Debug.Log($"[通信成功] サーバーに接続しました！ あなたの仮ID: {peer.Id}");
+            Debug.Log($"[通信] サーバーに接続しました！ あなたの仮ID: {peer.Id}");
+            ProcessDisplay.ChangeProcessText($"Connect server. Your Temporary ID = {peer.Id}");
         }
 
         //  サーバーからデータを受信した時の処理
@@ -142,7 +149,8 @@ namespace Move.Client
                         }
                     default:
                         {
-                            Debug.LogWarning($"知らないパケットIDが届きました: {packetType}");
+                            Debug.LogWarning($"[通信] 知らないパケットIDが届きました: {packetType}");
+                            ProcessDisplay.ChangePacketText($"Receive unknow packet: {packetType}");
                             break;
                         }
                 }
@@ -150,6 +158,7 @@ namespace Move.Client
             catch (Exception ex)
             {
                 Debug.LogError($"データ受信エラー: {ex.Message}");
+                ProcessDisplay.ChangeProcessText($"Data Receive Error: {ex.Message}");
             }
             reader.Recycle();
         }
@@ -158,6 +167,7 @@ namespace Move.Client
         public void OnPeerDisconnected(NetPeer peer, DisconnectInfo disconnectInfo)
         {
             Debug.LogWarning($"[通信切断] サーバーから切断されました。理由: {disconnectInfo.Reason}");
+            ProcessDisplay.ChangeProcessText($"Disconnect from server Reason : {disconnectInfo.Reason}");
 
             _serverPeer = null;
             _sender.UpdateServerPeer(_serverPeer);
@@ -167,6 +177,7 @@ namespace Move.Client
         public void OnNetworkError(IPEndPoint endPoint, SocketError socketError)
         {
             Debug.LogError($"[通信エラー] ネットワークエラーが発生しました: {socketError}");
+            ProcessDisplay.ChangeProcessText($"Hapen NetWorkError: {socketError}");
         }
 
         public void OnConnectionRequest(ConnectionRequest request)
@@ -189,6 +200,7 @@ namespace Move.Client
         void HandleAssignPlayerID(NetPacketReader reader)
         {
             _playerID = reader.GetInt();
+            ProcessDisplay.ChangePacketText($"RecievePacket PakcetType : {PacketType.AssignPlayerId} (ID = {_playerID})");
         }
 
         //  座標受信時処理
@@ -203,8 +215,8 @@ namespace Move.Client
 
             Vector3 targetPos = new Vector3(x, y, z);
 
-
             GameManager.Instance.UpdateRemotePlayerPosition(id, targetPos);
+            ProcessDisplay.ChangePacketText($"RecievePacket PakcetType : {PacketType.Position} (RemotePlayerPosition = {targetPos})");
         }
 
         //  マッチ成功受信処理
@@ -213,6 +225,7 @@ namespace Move.Client
             int RoomID = reader.GetInt();
             _connetctedPlayerID = reader.GetInt();
             Debug.Log($"マッチ成功 対戦相手ID → [{_connetctedPlayerID}]");
+            ProcessDisplay.ChangePacketText($"RecievePacket PakcetType : {PacketType.MatchSuccess} (RemotePlayerID = {_connetctedPlayerID})");
         }
 
         //  プレイヤースポーン処理
@@ -235,6 +248,8 @@ namespace Move.Client
                 var remoteCtrl = characterObj.AddComponent<RemoteCharacterController>();
                 GameManager.Instance.RegisterRemotePlayer(_connetctedPlayerID, remoteCtrl);
             }
+            
+            ProcessDisplay.ChangePacketText($"RecievePacket PakcetType : {PacketType.SpawnPlayer}");
 
             //OnPlayerSpawnedWithInstance?.Invoke(id, playerObj);
         }
