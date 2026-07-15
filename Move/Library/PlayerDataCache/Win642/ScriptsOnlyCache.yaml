@@ -1,11 +1,12 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - Kamatte.Core.MatchmakingController
     - Move.Client.NetworkClient
     - Move.Core.GameManager
+    - Move.Core.MatchmakingController
     - Move.Player.PlayerInputController
     - Move.Player.PlayerSpawner
+    - ProcessDisplayer
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
     - UnityEngine.InputSystem.InputActionReference
@@ -81,8 +82,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.Universal.WhiteBalance
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.ShaderGraph.Editor.dll:
-    - UnityEditor.ShaderGraph.ShaderGraphProjectSettings
     Unity.TextMeshPro:
     - TMPro.TMP_ColorGradient
     - TMPro.TMP_FontAsset
@@ -324,145 +323,147 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 40812}
+      Script: {instanceID: 34888}
     - Class: 114
-      Script: {instanceID: 21010}
+      Script: {instanceID: 46738}
     - Class: 114
-      Script: {instanceID: 46734}
+      Script: {instanceID: 40814}
     - Class: 114
-      Script: {instanceID: 43596}
+      Script: {instanceID: 43600}
     - Class: 114
-      Script: {instanceID: 46140}
+      Script: {instanceID: 46144}
     - Class: 114
-      Script: {instanceID: 45102}
+      Script: {instanceID: 41536}
     - Class: 114
-      Script: {instanceID: 45968}
+      Script: {instanceID: 45106}
+    - Class: 114
+      Script: {instanceID: 45972}
     - Class: 114
       Script: {instanceID: 34952}
     - Class: 114
-      Script: {instanceID: 39584}
+      Script: {instanceID: 39586}
     - Class: 114
-      Script: {instanceID: 44962}
+      Script: {instanceID: 44966}
     - Class: 114
-      Script: {instanceID: 34246}
+      Script: {instanceID: 34244}
     - Class: 114
       Script: {instanceID: 36082}
     - Class: 114
       Script: {instanceID: 37182}
     - Class: 114
-      Script: {instanceID: 45088}
+      Script: {instanceID: 45092}
     - Class: 114
-      Script: {instanceID: 38398}
+      Script: {instanceID: 38400}
     - Class: 114
-      Script: {instanceID: 34758}
+      Script: {instanceID: 34756}
     - Class: 114
-      Script: {instanceID: 44062}
+      Script: {instanceID: 44066}
     - Class: 114
-      Script: {instanceID: 42518}
+      Script: {instanceID: 42522}
     - Class: 114
-      Script: {instanceID: 39722}
+      Script: {instanceID: 39724}
     - Class: 114
       Script: {instanceID: 37148}
     - Class: 114
-      Script: {instanceID: 45464}
+      Script: {instanceID: 45468}
     - Class: 114
-      Script: {instanceID: 39930}
+      Script: {instanceID: 39932}
     - Class: 114
       Script: {instanceID: 37018}
     - Class: 114
-      Script: {instanceID: 39648}
+      Script: {instanceID: 39650}
     - Class: 114
-      Script: {instanceID: 39806}
+      Script: {instanceID: 39808}
     - Class: 114
       Script: {instanceID: 35242}
     - Class: 114
       Script: {instanceID: 37114}
     - Class: 114
-      Script: {instanceID: 35448}
+      Script: {instanceID: 35446}
     - Class: 114
-      Script: {instanceID: 44006}
+      Script: {instanceID: 44010}
     - Class: 114
       Script: {instanceID: 36698}
     - Class: 114
-      Script: {instanceID: 34434}
+      Script: {instanceID: 34432}
     - Class: 114
-      Script: {instanceID: 39156}
+      Script: {instanceID: 39158}
     - Class: 114
-      Script: {instanceID: 34712}
+      Script: {instanceID: 34710}
     - Class: 114
       Script: {instanceID: 36464}
     - Class: 114
-      Script: {instanceID: 40860}
+      Script: {instanceID: 40862}
     - Class: 114
-      Script: {instanceID: 44348}
+      Script: {instanceID: 44352}
     - Class: 114
-      Script: {instanceID: 45434}
+      Script: {instanceID: 45438}
     - Class: 114
-      Script: {instanceID: 39236}
+      Script: {instanceID: 39238}
     - Class: 114
       Script: {instanceID: 35116}
     - Class: 114
-      Script: {instanceID: 46196}
+      Script: {instanceID: 46200}
     - Class: 114
-      Script: {instanceID: 45086}
+      Script: {instanceID: 45090}
     - Class: 114
-      Script: {instanceID: 40858}
+      Script: {instanceID: 40860}
     - Class: 114
-      Script: {instanceID: 40756}
+      Script: {instanceID: 40758}
     - Class: 114
-      Script: {instanceID: 39200}
+      Script: {instanceID: 39202}
     - Class: 114
-      Script: {instanceID: 41894}
+      Script: {instanceID: 41898}
     - Class: 114
-      Script: {instanceID: 45342}
+      Script: {instanceID: 45346}
     - Class: 114
       Script: {instanceID: 37054}
     - Class: 114
-      Script: {instanceID: 45630}
+      Script: {instanceID: 45634}
     - Class: 114
-      Script: {instanceID: 43568}
+      Script: {instanceID: 43572}
     - Class: 114
       Script: {instanceID: 36600}
     - Class: 114
-      Script: {instanceID: 39100}
+      Script: {instanceID: 39102}
     - Class: 114
-      Script: {instanceID: 39618}
+      Script: {instanceID: 39620}
     - Class: 114
-      Script: {instanceID: 39494}
+      Script: {instanceID: 39496}
     - Class: 114
-      Script: {instanceID: 42494}
+      Script: {instanceID: 42498}
     - Class: 114
-      Script: {instanceID: 35356}
+      Script: {instanceID: 35354}
     - Class: 114
       Script: {instanceID: 35180}
     - Class: 114
-      Script: {instanceID: 42368}
+      Script: {instanceID: 42372}
     - Class: 114
       Script: {instanceID: 36526}
     - Class: 114
-      Script: {instanceID: 45196}
+      Script: {instanceID: 45200}
     - Class: 114
       Script: {instanceID: 36926}
     - Class: 114
-      Script: {instanceID: 41114}
+      Script: {instanceID: 41116}
     - Class: 114
-      Script: {instanceID: 35852}
+      Script: {instanceID: 35850}
     - Class: 114
-      Script: {instanceID: 35582}
+      Script: {instanceID: 35580}
     - Class: 114
       Script: {instanceID: 38070}
     - Class: 114
-      Script: {instanceID: 45888}
+      Script: {instanceID: 45892}
     - Class: 114
-      Script: {instanceID: 44510}
+      Script: {instanceID: 44514}
     - Class: 114
-      Script: {instanceID: 40560}
+      Script: {instanceID: 40562}
     - Class: 114
-      Script: {instanceID: 44418}
+      Script: {instanceID: 44422}
     - Class: 114
-      Script: {instanceID: 46370}
+      Script: {instanceID: 46374}
     - Class: 114
-      Script: {instanceID: 38414}
+      Script: {instanceID: 38416}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -486,12 +487,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime
     namespaceName: UnityEngine.Rendering.Universal
     className: UniversalRenderPipelineAsset
-  - hash:
-      serializedVersion: 2
-      Hash: aa97a422cef54e5c2e6e2fea1076033f
-    assemblyName: Assembly-CSharp
-    namespaceName: Move.Client
-    className: NetworkClient
   - hash:
       serializedVersion: 2
       Hash: 95c8a8c68e664d4868755f06e7c55997
@@ -606,6 +601,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: cf705d94ad7cf87235ce6afe391f3445
+    assemblyName: Assembly-CSharp
+    namespaceName: Move.Client
+    className: NetworkClient
   - hash:
       serializedVersion: 2
       Hash: 092078fc8474b7369f03d561dc582b82
@@ -1454,9 +1455,9 @@ ScriptsOnlyBuild:
     className: OnScreenStick
   - hash:
       serializedVersion: 2
-      Hash: 7b8d9cb6d8447247797cd8a951f69be7
+      Hash: f37df9053e2a3db9ab847b83a369581a
     assemblyName: Assembly-CSharp
-    namespaceName: Kamatte.Core
+    namespaceName: Move.Core
     className: MatchmakingController
   - hash:
       serializedVersion: 2
@@ -1542,6 +1543,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
     className: TMP_TextSelector_A
+  - hash:
+      serializedVersion: 2
+      Hash: 52afa7b86b631cc414206ba1562b8026
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ProcessDisplayer
   - hash:
       serializedVersion: 2
       Hash: 1deda86fe7ffd8587afcfe68a02d034c
