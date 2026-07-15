@@ -1,8 +1,6 @@
 # README学習中
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/your-username/repo)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
+[![.NET Core Desktop](https://github.com/a9r1311/InternetPractice/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/a9r1311/InternetPractice/actions/workflows/dotnet-desktop.yml)
 ## 🚀 このプロジェクトについて
 このプロジェクトは通信を学ぶために作成したものです。
 
