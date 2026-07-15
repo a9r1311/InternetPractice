@@ -106,14 +106,19 @@ namespace Move.Server
 
                 switch (packetType)
                 {
-                    case PacketType.Position:  // 座標変化受信
+                    case PacketType.Login:  // マッチング受信
                         {
-                            HandlePositionReceive(peer, reader);
+                            HandleGoMatchReceive(peer);
                             break;
                         }
                     case PacketType.GoMatch:  // マッチング受信
                         {
                             HandleGoMatchReceive(peer);
+                            break;
+                        }
+                    case PacketType.Position:  // 座標変化受信
+                        {
+                            HandlePositionReceive(peer, reader);
                             break;
                         }
                     default:
@@ -154,6 +159,18 @@ namespace Move.Server
         {
         }
 
+        //  マッチング受信処理
+        void HandleLoginReceive(NetPeer peer)
+        {
+            _matchmaking.AddWaitiongList(peer);
+        }
+
+        //  マッチング受信処理
+        void HandleGoMatchReceive(NetPeer peer)
+        {
+            _matchmaking.AddWaitiongList(peer);
+        }
+
         //  座標受信処理
         void HandlePositionReceive(NetPeer peer, NetPacketReader reader)
         {
@@ -190,11 +207,7 @@ namespace Move.Server
             }
         }
 
-        //  マッチング受信処理
-        void HandleGoMatchReceive(NetPeer peer)
-        {
-            _matchmaking.AddWaitiongList(peer);
-        }
+
 
         //  プレイヤーID送信
         void SendAssignIdPacket(NetPeer peer, int assignedId)
