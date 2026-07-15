@@ -8,7 +8,7 @@
 
 ## 実行方法
 #### 1. VisualStudioでサーバーを起動
-#### 2. UnityのBuildを実行しクライアントを起動
+#### 2. UnityのBuildDataを実行しクライアントを起動
 ```bash
 [UnityBuildPath]
 Move/Build/Move.exe
