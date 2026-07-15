@@ -1,23 +1,23 @@
-# README学習中
+# InternetPractice
 
-[![.NET Core Desktop](https://github.com/a9r1311/InternetPractice/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/a9r1311/InternetPractice/actions/workflows/dotnet-desktop.yml)
-## 🚀 このプロジェクトについて
+## このプロジェクトについて
 このプロジェクトは通信を学ぶために作成したものです。
 
-> "ゲーム作品ではないです。"
+クライアント同士をマッチングさせ、座標同期をしてます。
+> ゲーム作品ではないです。
 
-## 🛠 機能一覧
-- [x] **Markdown** によるリッチなテキスト表現
-- [x] **画像・GIF** の埋め込み
-- [x] **コードブロック** によるコマンド提示
-- [ ] まだ実装されていない機能（チェックボックス）
-
-## 💻 使い方
-以下のコマンドでインストールできます。
-
+## 実行方法
+#### 1. VisualStudioでサーバーを起動
+#### 2. UnityのBuildを実行しクライアントを起動
 ```bash
-# クローンする
-git clone [https://github.com/username/repo.git](https://github.com/username/repo.git)
+[UnityBuildPath]
+Move/Build/Move.exe
+```
+### ⚠️ 実行時の注意点
 
-# 依存関係をインストール
-npm install
+> [!IMPORTANT]
+> Unity側のClientMatchMakerのURLのIP部分を、サーバーを起動するPCのプライベートIPアドレスに変更してください
+> Move/Assets/Script/C#/NetWork/Client/ClientMatchMaker.cs
+
+> [!TIP]
+> このゲームのマッチング人数は2人です。
