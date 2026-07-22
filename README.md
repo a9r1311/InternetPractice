@@ -20,4 +20,4 @@ Move/Build/Move.exe
 > Move/Assets/Script/C#/NetWork/Client/ClientMatchMaker.cs
 
 > [!TIP]
-> このゲームのマッチング人数は2人です。
+> この作品のマッチング人数は2人です。
