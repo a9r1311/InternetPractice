@@ -19,5 +19,8 @@ Move/Build/Move.exe
 > Unity側のClientMatchMakerのURLのIP部分を、サーバーを起動するPCのプライベートIPアドレスに変更してください
 > Move/Assets/Script/C#/NetWork/Client/ClientMatchMaker.cs
 
+> [!IMPORTANT]
+> MatchMakerとInGameServerは同じPCで実行してください。
+
 > [!TIP]
 > この作品のマッチング人数は2人です。
